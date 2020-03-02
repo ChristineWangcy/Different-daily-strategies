@@ -107,7 +107,7 @@ def add_columns(data,stockname):
     data['trading'] = np.where(data['volume'].isnull(), '0', '1')
 
     all_data = pd.read_csv(
-        '/Users/clienttest/Documents/Christine/projects/history highest price strategy/all daily data.csv')
+        '/Users/chunyanwang/Christine documents/projects/history highest price strategy/all daily data.csv')
 
     data = data[data['is close highest'] == 1]
     print(len(data))
@@ -123,13 +123,13 @@ def add_columns(data,stockname):
 
 #all_data = pd.DataFrame(columns=['date', 'open', 'high', 'low', 'close', 'volume', 'turnover','stock',
 #                                 'last day profit','trading','trading days','next day profit'])
-all_data = pd.read_csv('/Users/clienttest/Documents/Christine/projects/history highest price strategy/all daily data.csv',\
+all_data = pd.read_csv('/Users/chunyanwang/Christine documents/projects/history highest price strategy/all daily data.csv',\
                        header=0,index_col=0)
 del all_data['date']
 all_data.rename(columns = {all_data.columns[0]:'date'},inplace=True)
 all_data.set_index('date')
 
-dir = '/Users/clienttest/Documents/Christine/projects/data files/downloaded stock data/1014 daily/'
+dir = '/Users/chunyanwang/Christine documents/projects/data files/downloaded stock data/1014 daily/'
 files = os.listdir(dir)
 
 for f in files:
@@ -165,7 +165,7 @@ for f in files:
         data = add_columns(data, f)
 
         # create new daily file with more columns
-        #data.to_csv('/Users/clienttest/Documents/Christine/projects/data files/stocks daily data with indicators/' + f[3:9] +'_alldata.csv')
+        #data.to_csv('/Users/chunyanwang/Christine documents/projects/data files/stocks daily data with indicators/' + f[3:9] +'_alldata.csv')
 
         ''' 
         # investigate indicator and price
@@ -173,7 +173,7 @@ for f in files:
         plt.plot(data['close'])
         plt.subplot(2,1,2)
         plt.plot(data['total increase or decrease'])
-        plt.savefig('/Users/clienttest/Documents/Christine/projects/data files/images/' + f[3:9] + '.png')
+        plt.savefig('/Users/chunyanwang/Christine documents/projects/data files/images/' + f[3:9] + '.png')
         plt.close('all')
         '''
 
@@ -181,7 +181,7 @@ for f in files:
         all_data = pd.concat([all_data,data])
         print(f+ ' done')
         print(len(data),len(all_data))
-        all_data.to_csv('/Users/clienttest/Documents/Christine/projects/history highest price strategy/all daily data.csv')
+        all_data.to_csv('/Users/chunyanwang/Christine documents/projects/history highest price strategy/all daily data.csv')
 
 print(all_data)
 

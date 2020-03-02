@@ -7,7 +7,7 @@ import datetime
 import numpy as np
 
 
-dir = '/Users/clienttest/Documents/Christine/projects/'
+dir = '/Users/chunyanwang/Christine documents/projects/'
 
 data = pd.read_csv(dir+'history highest price strategy/all daily data.csv')
 
@@ -121,7 +121,7 @@ fig2.plot(output['new highest stocks amount'])
 fig2.set_title('new high stocks amount in ' + year)
 #fig2.set_xticks(output['date'])
 plt.show()
-plt.savefig('/Users/clienttest/Documents/Christine/projects/history highest price strategy/history highest strategy profit '+ year + '.png')
+plt.savefig('/Users/chunyanwang/Christine documents/projects/history highest price strategy/history highest strategy profit '+ year + '.png')
 plt.close('all')
 #plt.legend(loc='best')
 
